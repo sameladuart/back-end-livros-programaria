@@ -69,7 +69,7 @@ async function corrigeLivro (request,response) {
 async function deletaLivro (request,response) {
     try {
     await Livro.findByIdAndDelete(request.params.id)
-    response.json({message: "mulher deletada com sucesso!"})
+    response.json({message: "livro deletada com sucesso!"})
     } catch(erro){
         console.log(erro)
     }
