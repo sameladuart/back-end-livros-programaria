@@ -69,7 +69,7 @@ async function corrigeLivro (request,response) {
 async function deletaLivro (request,response) {
     try {
     await Livro.findByIdAndDelete(request.params.id)
-    response.json({message: "livro deletado com sucesso!"})
+    response.json({message: "mulher deletada com sucesso!"})
     } catch(erro){
         console.log(erro)
     }
@@ -78,8 +78,8 @@ async function deletaLivro (request,response) {
 
     app.use(router.get("/livros",mostraLivro))
     app.use(router.post("/livros",criaLivro))
-    app.use(router.patch("/livros:id",corrigeLivro))
-    app.use(router.delete("/livros:id",deletaLivro))
+    app.use(router.patch("/livros/:id",corrigeLivro))
+    app.use(router.delete("/livros/:id",deletaLivro))
 
     //PORTA
 function mostraPorta()
