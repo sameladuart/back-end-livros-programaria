@@ -16,7 +16,7 @@ const porta = 3334  // estou criando a porta
 async function mostraLivro (request,response) {
 try {
 
-    const livrosVindosDoBancoDeDados = await Mulher.find()
+    const livrosVindosDoBancoDeDados = await Livro.find()
     response.json(livrosVindosDoBancoDeDados)
 } catch(erro){
     console.log(erro)
@@ -69,7 +69,7 @@ async function corrigeLivro (request,response) {
 async function deletaLivro (request,response) {
     try {
     await Livro.findByIdAndDelete(request.params.id)
-    response.json({message: "mulher deletada com sucesso!"})
+    response.json({mensagem: "livro deletado com sucesso!"})
     } catch(erro){
         console.log(erro)
     }
@@ -78,8 +78,8 @@ async function deletaLivro (request,response) {
 
     app.use(router.get("/livros",mostraLivro))
     app.use(router.post("/livros",criaLivro))
-    app.use(router.patch("/livros:id",corrigeLivro))
-    app.use(router.delete("/livros:id",deletaLivro))
+    app.use(router.patch("/livros/:id",corrigeLivro))
+    app.use(router.delete("/livros/:id",deletaLivro))
 
     //PORTA
 function mostraPorta()
